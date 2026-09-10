@@ -49,15 +49,6 @@
   .mask{display:block;overflow:hidden}
   .mask > *{display:block;will-change:transform}
 
-  /* ---- assinatura: linha de carris (dois fios + travessas) ---- */
-  .rail-rule{--h:14px;height:var(--h);width:100%;max-width:220px;position:relative;opacity:.9}
-  .rail-rule::before,.rail-rule::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--rail)}
-  .rail-rule::before{top:2px}.rail-rule::after{bottom:2px}
-  .rail-rule i{position:absolute;top:0;bottom:0;width:2px;background:var(--steel);opacity:.55}
-  .rail-rule i:nth-child(1){left:8%}.rail-rule i:nth-child(2){left:28%}
-  .rail-rule i:nth-child(3){left:48%}.rail-rule i:nth-child(4){left:68%}
-  .rail-rule i:nth-child(5){left:88%}
-
   /* ---------- whatsapp flutuante ---------- */
   .whatsapp-float{position:fixed;right:20px;bottom:20px;z-index:80;width:58px;height:58px;
     border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
@@ -72,7 +63,13 @@
   .hdr .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .brand{display:flex;align-items:center;gap:12px}
   .brand-logo{height:40px;width:auto;object-fit:contain}
-  .burger{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
+  .nav-desktop{display:flex;align-items:center;gap:clamp(20px,3vw,38px)}
+  .nav-desktop a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);transition:color .2s}
+  .nav-desktop a:hover{color:var(--rail)}
+  .nav-desktop .nav-cta{color:#fff;background:var(--rail);padding:10px 20px;border-radius:999px;transition:background .2s}
+  .nav-desktop .nav-cta:hover{background:var(--deep);color:#fff}
+  .burger{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
   .burger span{position:relative;display:block;width:26px;height:14px}
   .burger i{position:absolute;left:0;height:2px;width:26px;background:var(--deep);transition:all .3s var(--ease)}
   .burger i:nth-child(1){top:0}.burger i:nth-child(2){top:50%;transform:translateY(-50%)}.burger i:nth-child(3){bottom:0}
@@ -169,13 +166,12 @@
   /* ---------- serviços / projetos ---------- */
   .services{padding:clamp(5rem,11vw,9rem) 0;background:var(--mist)}
   .sec-head{max-width:60ch;margin-bottom:clamp(2.5rem,5vw,3.5rem)}
-  .sec-head .rail-rule{margin-bottom:22px}
   .sec-head h2{font-size:clamp(2rem,4.8vw,3.4rem);margin-bottom:16px}
   .sec-head p{color:var(--ink-soft)}
   /* pilha de cards: cada serviço fica fixo (sticky) e o seguinte entra por cima ao rolar */
   .svc-grid{display:flex;flex-direction:column}
   .svc{position:sticky;top:104px;border-radius:18px;overflow:hidden;min-height:420px;display:flex;
-    box-shadow:var(--shadow);background:var(--deep);isolation:isolate;margin-bottom:60vh}
+    box-shadow:var(--shadow);background:var(--deep);isolation:isolate;margin-bottom:14vh}
   .svc:last-child{margin-bottom:0}
   .svc:nth-child(1){z-index:1}
   .svc:nth-child(2){z-index:2}
@@ -225,8 +221,6 @@
   .contact{padding:clamp(5rem,11vw,9rem) 0 0;background:var(--deep);color:#fff}
   .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start;
     padding-bottom:clamp(3rem,7vw,5rem)}
-  .contact .rail-rule{margin-bottom:22px}
-  .contact .rail-rule::before,.contact .rail-rule::after{background:#5C8FC7}
   .contact h2{color:#fff;font-size:clamp(2rem,4.8vw,3.2rem);margin-bottom:24px}
   .cinfo{margin-bottom:26px}
   .cinfo .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7FB0E6;margin-bottom:6px}
@@ -246,11 +240,15 @@
 
   /* ---------- responsivo ---------- */
   @media(max-width:900px){
+    .nav-desktop{display:none}
+    .burger{display:flex}
     .empresa .grid,.org .grid,.contact .grid{grid-template-columns:1fr}
+    .truck-wrap{order:1}
+    .empresa .grid > .empresa-text{order:2}
     .org-teaser{order:-1}
   }
   @media(max-width:560px){
-    .svc{top:80px;min-height:340px;margin-bottom:45vh}
+    .svc{top:80px;min-height:340px;margin-bottom:10vh}
     .benefit{padding:6px 32px}
     .benefit img{height:92px}
     .facts{gap:20px 30px}
@@ -291,6 +289,13 @@
       <a class="brand" href="#inicio" aria-label="Socicarril — início">
         <img class="brand-logo" src="assets/logo.png" alt="Socicarril" />
       </a>
+      <nav class="nav-desktop">
+        <a href="#empresa">A Empresa</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#organograma">Organograma</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="#contacto">Fale connosco</a>
+      </nav>
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span><i></i><i></i><i></i></span></button>
     </div>
   </div>
@@ -323,9 +328,7 @@
     <div class="container">
       <img class="hero-logo" src="assets/logo.png" alt="Socicarril" data-hero-logo />
       <p class="hero-sub">
-        <b>Construção, renovação e conservação</b> de vias férreas para gestores de infraestrutura,
-        grandes empreiteiros, portos e indústria com linha privada. Certificação
-        <b>ISO 9001, 14001 e 45001</b>. Operação em Portugal e em África.
+        <b>Construção, renovação e conservação</b> de vias férreas.
       </p>
     </div>
   </div>
@@ -359,7 +362,6 @@
         <img src="assets/caminhao.png" alt="Camião da frota Socicarril" />
       </div>
       <div class="empresa-text">
-        <div class="rail-rule" data-fade><i></i><i></i><i></i><i></i><i></i></div>
         <h2 data-rise>Quem somos nós</h2>
         <p class="lead" data-rise>A Socicarril é uma empresa portuguesa fundada em 2002, especializada em trabalhos
           ferroviários — construção, renovação e conservação de vias férreas.</p>
@@ -416,7 +418,6 @@
 <section class="services" id="servicos">
   <div class="container">
     <div class="sec-head">
-      <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
       <h2>Serviços</h2>
       <p>Três frentes de trabalho e uma frota própria que garante rapidez, controlo e autonomia em cada obra.
         Explore os projetos de cada área.</p>
@@ -480,7 +481,6 @@
   <div class="container">
     <div class="grid">
       <div>
-        <div class="rail-rule" data-fade><i></i><i></i><i></i><i></i><i></i></div>
         <h2 data-rise>Organograma</h2>
         <p data-rise>Uma estrutura clara, da gerência ao estaleiro central, com responsabilidade definida em cada
           etapa da obra. É assim que garantimos rigor, prazo e segurança na entrega de cada serviço.</p>
@@ -515,7 +515,6 @@
   <div class="container">
     <div class="grid">
       <div>
-        <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
         <h2>Fale connosco</h2>
         <div class="cinfo">
           <div class="lbl">Localização</div>
