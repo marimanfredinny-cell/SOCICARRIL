@@ -66,22 +66,15 @@
   .whatsapp-float svg{width:30px;height:30px;display:block}
 
   /* ---------- header ---------- */
-  .hdr{position:fixed;inset:0 0 auto 0;z-index:50;padding:18px 0;transition:all .5s var(--ease);
-    border-bottom:1px solid transparent}
-  .hdr.solid{background:rgba(255,255,255,.82);backdrop-filter:blur(12px);
-    border-bottom-color:var(--line);padding:10px 0}
+  .hdr{position:fixed;inset:0 0 auto 0;z-index:50;padding:14px 0;transition:padding .4s var(--ease);
+    background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .hdr.solid{padding:10px 0}
   .hdr .row{display:flex;align-items:center;justify-content:space-between;gap:24px}
   .brand{display:flex;align-items:center;gap:12px}
-  /* logo real: descomente o <img> no HTML quando subir assets/logo.png */
   .brand-logo{height:40px;width:auto;object-fit:contain}
-  .brand-word{font-family:var(--disp);font-weight:800;font-size:22px;letter-spacing:.02em;
-    color:#fff;transition:color .4s var(--ease)}
-  .brand-word b{color:#fff}
-  .hdr.solid .brand-word{color:var(--deep)}
   .burger{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:0;cursor:pointer}
   .burger span{position:relative;display:block;width:26px;height:14px}
-  .burger i{position:absolute;left:0;height:2px;width:26px;background:#fff;transition:all .3s var(--ease)}
-  .hdr.solid .burger i{background:var(--deep)}
+  .burger i{position:absolute;left:0;height:2px;width:26px;background:var(--deep);transition:all .3s var(--ease)}
   .burger i:nth-child(1){top:0}.burger i:nth-child(2){top:50%;transform:translateY(-50%)}.burger i:nth-child(3){bottom:0}
   body.menu-open .burger i{background:var(--deep)}
   body.menu-open .burger i:nth-child(1){top:50%;transform:translateY(-50%) rotate(45deg)}
@@ -117,17 +110,8 @@
   .hero-bg img{position:absolute;inset:0;opacity:.34;mix-blend-mode:luminosity}
   .hero-scrim{position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.42) 45%,rgba(0,0,0,.8))}
-  /* trilhos em perspetiva (assinatura, puro CSS) */
-  .hero-track{position:absolute;inset:0;z-index:1;overflow:hidden;opacity:.5;pointer-events:none}
-  .hero-track::before,.hero-track::after{content:"";position:absolute;bottom:-4%;top:34%;width:2px;
-    background:linear-gradient(180deg,transparent,rgba(180,205,235,.7));transform-origin:bottom}
-  .hero-track::before{left:50%;transform:translateX(-140px) rotate(15deg)}
-  .hero-track::after{left:50%;transform:translateX(140px) rotate(-15deg)}
   .hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;
     justify-content:center;text-align:center;padding-top:120px;padding-bottom:36px}
-  .hero-kicker{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:26px}
-  .hero-kicker .kicker{color:#9DC1EC}
-  .hero-kicker .rail-rule::before,.hero-kicker .rail-rule::after{background:#5C8FC7}
   .hero-logo{width:clamp(240px,32vw,480px);height:auto;margin:0 auto;
     filter:drop-shadow(0 4px 24px rgba(0,0,0,.6)) drop-shadow(0 0 60px rgba(0,0,0,.35))}
   .hero-sub{margin:26px auto 0;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:#CBD9E8;line-height:1.7}
@@ -149,8 +133,9 @@
 
   /* ---------- empresa (sobre) ---------- */
   .empresa{padding:clamp(5rem,11vw,9rem) 0;background:var(--paper)}
-  .empresa .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-  .truck-wrap{position:relative}
+  .empresa .grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+  .truck-wrap{position:relative;order:2}
+  .empresa .grid > .empresa-text{order:1}
   .truck-track{position:absolute;left:-6%;right:-6%;bottom:8%;height:2px;background:var(--line)}
   .truck-track::after{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--line)}
   .truck-wrap img{width:100%;height:auto;object-fit:contain;position:relative;z-index:1;
@@ -187,19 +172,18 @@
   .sec-head .rail-rule{margin-bottom:22px}
   .sec-head h2{font-size:clamp(2rem,4.8vw,3.4rem);margin-bottom:16px}
   .sec-head p{color:var(--ink-soft)}
-  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.25rem,2.5vw,1.75rem)}
-  .svc{position:relative;border-radius:18px;overflow:hidden;min-height:380px;display:flex;
-    box-shadow:var(--shadow);background:var(--deep);isolation:isolate}
+  /* pilha de cards: cada serviço fica fixo (sticky) e o seguinte entra por cima ao rolar */
+  .svc-grid{display:flex;flex-direction:column}
+  .svc{position:sticky;top:104px;border-radius:18px;overflow:hidden;min-height:420px;display:flex;
+    box-shadow:var(--shadow);background:var(--deep);isolation:isolate;margin-bottom:60vh}
+  .svc:last-child{margin-bottom:0}
+  .svc:nth-child(1){z-index:1}
+  .svc:nth-child(2){z-index:2}
+  .svc:nth-child(3){z-index:3}
+  .svc:nth-child(4){z-index:4}
   .svc-media{position:absolute;inset:0;z-index:0}
   .svc-media img{transition:transform 1.1s var(--ease)}
   .svc:hover .svc-media img{transform:scale(1.06)}
-  /* placeholder visível enquanto não há foto real */
-  .svc-ph{position:absolute;inset:0;z-index:0;background:
-    linear-gradient(160deg,#12406e,#0C2A4D);}
-  .svc-ph::before{content:"";position:absolute;inset:0;opacity:.5;
-    background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.06) 38px 40px)}
-  .svc-ph::after{content:attr(data-ph);position:absolute;left:24px;top:24px;font-family:var(--mono);
-    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)}
   .svc-scrim{position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(12,42,77,.05) 30%,rgba(12,42,77,.9))}
   .svc-body{position:relative;z-index:2;margin-top:auto;padding:30px;color:#fff;width:100%}
@@ -263,10 +247,10 @@
   /* ---------- responsivo ---------- */
   @media(max-width:900px){
     .empresa .grid,.org .grid,.contact .grid{grid-template-columns:1fr}
-    .svc-grid{grid-template-columns:1fr}
     .org-teaser{order:-1}
   }
   @media(max-width:560px){
+    .svc{top:80px;min-height:340px;margin-bottom:45vh}
     .benefit{padding:6px 32px}
     .benefit img{height:92px}
     .facts{gap:20px 30px}
@@ -289,7 +273,7 @@
   /* estados iniciais (só aplicam quando o JS confirma que há animação) */
   .anim [data-rise]{opacity:0;transform:translateY(38px)}
   .anim [data-fade]{opacity:0}
-  .anim [data-truck]{opacity:0;transform:translateX(-70px)}
+  .anim [data-truck]{opacity:0;transform:translateX(70px)}
 </style>
 </head>
 <body>
@@ -334,14 +318,9 @@
     <img src="assets/hero.jpg" alt="" />
   </div>
   <div class="hero-scrim"></div>
-  <div class="hero-track"></div>
 
   <div class="hero-inner">
     <div class="container">
-      <div class="hero-kicker">
-        <span class="kicker">Desde 2002 · Ponte de Sor</span>
-        <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
-      </div>
       <img class="hero-logo" src="assets/logo.png" alt="Socicarril" data-hero-logo />
       <p class="hero-sub">
         <b>Construção, renovação e conservação</b> de vias férreas para gestores de infraestrutura,
@@ -379,9 +358,9 @@
         <div class="truck-track"></div>
         <img src="assets/caminhao.png" alt="Camião da frota Socicarril" />
       </div>
-      <div>
+      <div class="empresa-text">
         <div class="rail-rule" data-fade><i></i><i></i><i></i><i></i><i></i></div>
-        <h2 data-rise>Quem é a Socicarril</h2>
+        <h2 data-rise>Quem somos nós</h2>
         <p class="lead" data-rise>A Socicarril é uma empresa portuguesa fundada em 2002, especializada em trabalhos
           ferroviários — construção, renovação e conservação de vias férreas.</p>
         <p data-rise>Nasceu para responder ao mercado das subempreitadas, com destaque para grandes montagens e
@@ -445,8 +424,7 @@
     <div class="svc-grid">
 
       <a class="svc" href="projetos-construcao.html" data-rise>
-        <div class="svc-media"><div class="svc-ph" data-ph="Foto · Construção"></div>
-          <!-- <img src="assets/servico-construcao.jpg" alt="Construção de linha férrea" /> --></div>
+        <div class="svc-media"><img src="assets/contrucao.png" alt="Construção de linha férrea" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">01 — Construção</span>
@@ -458,8 +436,7 @@
       </a>
 
       <a class="svc" href="projetos-conservacao.html" data-rise>
-        <div class="svc-media"><div class="svc-ph" data-ph="Foto · Conservação"></div>
-          <!-- <img src="assets/servico-conservacao.jpg" alt="Conservação e manutenção" /> --></div>
+        <div class="svc-media"><img src="assets/maquina.jpg" alt="Conservação e manutenção" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">02 — Conservação</span>
@@ -471,8 +448,7 @@
       </a>
 
       <a class="svc" href="projetos-renovacao.html" data-rise>
-        <div class="svc-media"><div class="svc-ph" data-ph="Foto · Renovação"></div>
-          <!-- <img src="assets/servico-renovacao.jpg" alt="Renovação de vias" /> --></div>
+        <div class="svc-media"><img src="assets/renovacao.png" alt="Renovação de vias" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">03 — Renovação</span>
@@ -484,8 +460,7 @@
       </a>
 
       <a class="svc" href="frota.html" data-rise>
-        <div class="svc-media"><div class="svc-ph" data-ph="Foto · Frota"></div>
-          <!-- <img src="assets/frota.jpg" alt="Frota própria" /> --></div>
+        <div class="svc-media"><img src="assets/home.png" alt="Frota própria" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">04 — Frota própria</span>
@@ -626,9 +601,8 @@
 
   /* HERO — intro */
   var tl = gsap.timeline({ defaults:{ ease:"power3.out" } });
-  tl.from(".hero-kicker", { y:16, opacity:0, duration:.8 }, .1)
-    .from("[data-hero-logo]", { y:24, opacity:0, duration:1, ease:"power4.out" }, .2)
-    .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .55)
+  tl.from("[data-hero-logo]", { y:24, opacity:0, duration:1, ease:"power4.out" }, .1)
+    .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .5)
     .from(".benefits", { opacity:0, duration:.7 }, .9)
     .from(".hero-scroll", { opacity:0, y:-10, duration:.6 }, 1.1);
 
@@ -642,10 +616,11 @@
       scrollTrigger:{ trigger:el, start:"top 90%" } });
   });
 
-  /* caminhão desliza da esquerda */
+  /* caminhão desliza da direita, entra de novo a cada vez que passa pela tela */
   gsap.utils.toArray("[data-truck]").forEach(function(el){
     gsap.to(el, { x:0, opacity:1, duration:1.2, ease:"power3.out",
-      scrollTrigger:{ trigger:el, start:"top 82%" } });
+      scrollTrigger:{ trigger:el, start:"top 85%", end:"bottom 15%",
+        toggleActions:"restart reverse restart reverse" } });
   });
 
   /* marquee de clientes (infinito, 3 linhas, velocidades diferentes) */
