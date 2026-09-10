@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Organograma — Socicarril</title>
+<meta name="description" content="Estrutura organizacional da Socicarril, da gerência ao estaleiro central." />
+<meta name="theme-color" content="#0C2A4D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FFFFFF;--mist:#F4F7FA;--fog:#E7EDF3;--line:#D2DCE6;--steel:#7C8CA0;
+    --rail:#1F5FA8;--rail-soft:#EAF2FB;--deep:#0C2A4D;--ink:#111C28;--ink-soft:#4A5A6B;
+    --disp:"Archivo",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;--mono:"IBM Plex Mono",monospace;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}html,body{max-width:100%;overflow-x:hidden}
+  body{background:var(--mist);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:var(--disp);font-weight:800;color:var(--deep);line-height:1.05}
+  a{color:inherit;text-decoration:none}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--rail)}
+
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line)}
+  .topbar .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand-word{font-family:var(--disp);font-weight:800;font-size:20px;color:var(--deep)}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--rail);border:1px solid var(--line);border-radius:999px;padding:9px 18px;transition:all .3s var(--ease)}
+  .back:hover{background:var(--rail);color:#fff;border-color:var(--rail)}
+  .back svg{width:15px;height:15px}
+
+  .head{padding:clamp(3rem,7vw,5rem) 0 clamp(1.5rem,3vw,2.5rem)}
+  .head .kicker{display:block;margin-bottom:14px}
+  .head h1{font-size:clamp(2.2rem,6vw,4rem)}
+  .head p{color:var(--ink-soft);max-width:60ch;margin-top:16px}
+
+  /* ---- organograma ---- */
+  .chart{padding:0 0 clamp(3rem,7vw,5rem)}
+  .scroll-x{overflow-x:auto;padding:16px 0 8px;-webkit-overflow-scrolling:touch}
+  .tree{min-width:760px;display:flex;flex-direction:column;align-items:center}
+  .node{background:#fff;border:1.5px solid var(--rail);border-radius:12px;padding:14px 22px;text-align:center;
+    box-shadow:0 12px 26px -16px rgba(31,95,168,.7);min-width:120px}
+  .node .code{font-family:var(--disp);font-weight:800;font-size:1.35rem;color:var(--deep);line-height:1}
+  .node .full{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--rail);margin-top:6px}
+  .node.ger{background:var(--rail);border-color:var(--rail);min-width:160px}
+  .node.ger .code{color:#fff;font-size:1.6rem}.node.ger .full{color:#CFE2F7}
+  .node.dir{background:var(--deep);border-color:var(--deep)}
+  .node.dir .code{color:#fff}.node.dir .full{color:#9DC1EC}
+  .node.side{background:var(--fog);border:1.5px dashed var(--steel);min-width:auto;padding:10px 16px}
+  .node.side .code{font-size:.95rem;color:var(--ink-soft)}
+  .leaf{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:12px 16px;text-align:center;min-width:96px}
+  .leaf .code{font-family:var(--disp);font-weight:800;font-size:1.05rem;color:var(--deep)}
+  .leaf .full{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+
+  .connector{width:2px;height:30px;background:var(--line)}
+  .ger-row{display:flex;align-items:center;gap:0;justify-content:center;position:relative}
+  .ger-side{display:flex;align-items:center}
+  .ger-side .link-h{width:44px;height:2px;background:var(--steel);opacity:.6}
+  .ger-side.dashed .link-h{background:transparent;border-top:2px dashed var(--steel)}
+  .dirs{display:flex;gap:clamp(2rem,8vw,7rem);position:relative}
+  .dirs::before{content:"";position:absolute;top:-30px;left:25%;right:25%;height:2px;background:var(--line)}
+  .dir-col{display:flex;flex-direction:column;align-items:center}
+  .dir-head{display:flex;align-items:center}
+  .dir-head .link-h{width:34px;height:2px;background:var(--steel);opacity:.6}
+  .leaves{display:flex;gap:14px;position:relative;flex-wrap:nowrap}
+  .leaves::before{content:"";position:absolute;top:-30px;left:calc(50% / 4);right:calc(50% / 4);height:2px;background:var(--line)}
+  .leaf-wrap{display:flex;flex-direction:column;align-items:center}
+
+  /* ---- legenda ---- */
+  .legend{background:var(--deep);color:#fff;padding:clamp(2.5rem,6vw,4rem) 0}
+  .legend .kicker{color:#9DC1EC;display:block;margin-bottom:20px}
+  .legend .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px 30px}
+  .legend .item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .legend .item b{font-family:var(--mono);font-weight:500;color:#7FB0E6;flex:0 0 82px}
+  .legend .item span{color:#DCE7F2;font-size:.95rem}
+
+  footer{background:var(--deep);color:#8FA9C4;border-top:1px solid rgba(255,255,255,.12);
+    padding:22px 0;font-family:var(--mono);font-size:12px;text-align:center;letter-spacing:.06em}
+
+  @media(max-width:560px){ .scroll-x{margin:0 -1.25rem;padding-left:1.25rem;padding-right:1.25rem} }
+</style>
+</head>
+<body>
+
+<a class="whatsapp-float" href="https://wa.me/351242202650" target="_blank" rel="noopener" aria-label="WhatsApp"
+   style="position:fixed;right:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -6px rgba(0,0,0,.4)">
+  <svg viewBox="0 0 24 24" fill="#fff" style="width:28px;height:28px"><path d="M17.5 14.4c-.3-.15-1.8-.9-2.1-1-.28-.1-.48-.15-.68.15-.2.3-.78 1-.96 1.2-.18.2-.35.22-.65.08-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.18-.3-.02-.46.13-.6.13-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.68-1.63-.93-2.24-.24-.58-.5-.5-.68-.5h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.2 5.08 4.5.71.3 1.26.48 1.7.62.71.22 1.36.2 1.87.12.57-.08 1.8-.73 2.05-1.44.25-.7.25-1.32.18-1.44-.07-.13-.27-.2-.57-.35zM12 2.02c-5.5 0-10 4.48-10 10 0 1.76.46 3.42 1.27 4.86L2 22l5.27-1.38a10 10 0 0 0 4.73 1.2h.01c5.5 0 9.99-4.48 9.99-10s-4.49-10-10-10z"/></svg>
+</a>
+
+<div class="topbar">
+  <div class="container">
+    <div class="row">
+      <a class="brand-word" href="index.html">SOCICARRIL</a>
+      <a class="back" href="index.html#organograma">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Voltar ao site</a>
+    </div>
+  </div>
+</div>
+
+<header class="head">
+  <div class="container">
+    <span class="kicker">Estrutura organizacional</span>
+    <h1>Organograma</h1>
+    <p>Da gerência ao estaleiro central, uma estrutura com responsabilidade definida em cada etapa — a base que garante
+      rigor, prazo e segurança na entrega de cada obra ferroviária.</p>
+  </div>
+</header>
+
+<section class="chart">
+  <div class="container">
+    <div class="scroll-x">
+      <div class="tree">
+        <!-- topo: GER com apoios laterais -->
+        <div class="ger-row">
+          <div class="ger-side dashed"><div class="node side"><div class="code">Apoio Jurídico</div></div><span class="link-h"></span></div>
+          <div class="node ger"><div class="code">GER</div><div class="full">Gerência</div></div>
+          <div class="ger-side"><span class="link-h"></span><div class="node side"><div class="code">Gestão QAS</div></div></div>
+        </div>
+
+        <div class="connector"></div>
+
+        <!-- duas direções -->
+        <div class="dirs">
+          <!-- DOP -->
+          <div class="dir-col">
+            <div class="dir-head">
+              <div class="node side"><div class="code">AA</div></div><span class="link-h"></span>
+              <div class="node dir"><div class="code">DOP</div><div class="full">Direção Operacional</div></div>
+            </div>
+            <div class="connector"></div>
+            <div class="leaves">
+              <div class="leaf-wrap"><div class="leaf"><div class="code">COM</div><div class="full">Comercial</div></div></div>
+              <div class="leaf-wrap"><div class="leaf"><div class="code">PROD</div><div class="full">Produção</div></div></div>
+              <div class="leaf-wrap"><div class="leaf"><div class="code">OFIC</div><div class="full">Oficina</div></div></div>
+              <div class="leaf-wrap"><div class="leaf"><div class="code">EC</div><div class="full">Estaleiro Central</div></div></div>
+            </div>
+          </div>
+          <!-- DAF -->
+          <div class="dir-col">
+            <div class="dir-head">
+              <div class="node dir"><div class="code">DAF</div><div class="full">Direção Adm. e Financeira</div></div>
+              <span class="link-h"></span><div class="node side"><div class="code">AA</div></div>
+            </div>
+            <div class="connector"></div>
+            <div class="leaves">
+              <div class="leaf-wrap"><div class="leaf"><div class="code">COMP</div><div class="full">Compras</div></div></div>
+              <div class="leaf-wrap"><div class="leaf"><div class="code">RH</div><div class="full">Recursos Humanos</div></div></div>
+              <div class="leaf-wrap"><div class="leaf"><div class="code">CF</div><div class="full">Contab. e Finanças</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="legend">
+  <div class="container">
+    <span class="kicker">Legenda</span>
+    <div class="grid">
+      <div class="item"><b>GER</b><span>Gerência</span></div>
+      <div class="item"><b>DOP</b><span>Direção Operacional</span></div>
+      <div class="item"><b>DAF</b><span>Direção Administrativa e Financeira</span></div>
+      <div class="item"><b>AA</b><span>Apoio Administrativo</span></div>
+      <div class="item"><b>COM</b><span>Comercial</span></div>
+      <div class="item"><b>PROD</b><span>Produção</span></div>
+      <div class="item"><b>OFIC</b><span>Oficina</span></div>
+      <div class="item"><b>EC</b><span>Estaleiro Central</span></div>
+      <div class="item"><b>COMP</b><span>Compras</span></div>
+      <div class="item"><b>RH</b><span>Recursos Humanos</span></div>
+      <div class="item"><b>CF</b><span>Contabilidade e Finanças</span></div>
+      <div class="item"><b>Gestão QAS</b><span>Gestão da Qualidade, Ambiente e Segurança</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Socicarril, Lda. · Ponte de Sor · Portugal</footer>
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+</body>
+</html>
