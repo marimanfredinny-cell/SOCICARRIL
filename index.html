@@ -116,32 +116,33 @@
     background:linear-gradient(160deg,#0C2A4D 0%,#123963 45%,#0C2A4D 100%)}
   .hero-bg img{position:absolute;inset:0;opacity:.34;mix-blend-mode:luminosity}
   .hero-scrim{position:absolute;inset:0;z-index:1;
-    background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.22) 40%,rgba(0,0,0,.82))}
+    background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.42) 45%,rgba(0,0,0,.8))}
   /* trilhos em perspetiva (assinatura, puro CSS) */
   .hero-track{position:absolute;inset:0;z-index:1;overflow:hidden;opacity:.5;pointer-events:none}
   .hero-track::before,.hero-track::after{content:"";position:absolute;bottom:-4%;top:34%;width:2px;
     background:linear-gradient(180deg,transparent,rgba(180,205,235,.7));transform-origin:bottom}
   .hero-track::before{left:50%;transform:translateX(-140px) rotate(15deg)}
   .hero-track::after{left:50%;transform:translateX(140px) rotate(-15deg)}
-  .hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;
-    padding-top:120px;padding-bottom:36px}
-  .hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding-top:120px;padding-bottom:36px}
+  .hero-kicker{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:26px}
   .hero-kicker .kicker{color:#9DC1EC}
   .hero-kicker .rail-rule::before,.hero-kicker .rail-rule::after{background:#5C8FC7}
-  .hero-logo{width:clamp(220px,30vw,440px);height:auto;
+  .hero-logo{width:clamp(240px,32vw,480px);height:auto;margin:0 auto;
     filter:drop-shadow(0 4px 24px rgba(0,0,0,.6)) drop-shadow(0 0 60px rgba(0,0,0,.35))}
-  .hero-tagline{margin-top:24px;font-family:var(--disp);font-weight:700;
-    font-size:clamp(1.3rem,3vw,2.1rem);color:#fff;max-width:20ch;line-height:1.15}
-  .hero-sub{margin-top:26px;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:#CBD9E8;line-height:1.7}
+  .hero-sub{margin:26px auto 0;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:#CBD9E8;line-height:1.7}
   .hero-sub b{color:#fff;font-weight:600}
 
-  /* faixa de benefícios (cabeçalho da 1.ª sessão) */
-  .benefits{position:relative;z-index:2;background:rgba(255,255,255,.88);
-    border-top:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-  .benefits .container{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-top:26px;padding-bottom:26px}
-  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:6px 4px}
-  .benefit img{width:auto;height:88px;object-fit:contain}
-  .benefit span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);line-height:1.35;text-align:center}
+  /* faixa de benefícios (esteira de ícones entre secções, fundo branco) */
+  .benefits{position:relative;z-index:2;background:#fff;overflow:hidden;padding:32px 0}
+  .benefit-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .benefit-track{display:flex;width:max-content;will-change:transform}
+  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+    padding:6px 56px;flex:0 0 auto}
+  .benefit img{width:auto;height:128px;object-fit:contain}
+  .benefit span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-soft);line-height:1.35;text-align:center;white-space:nowrap}
   .hero-scroll{display:flex;align-items:center;gap:10px;justify-content:center;padding:14px 0 6px;
     font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB2D8;position:relative;z-index:2}
   .hero-scroll .ln{width:1px;height:26px;background:linear-gradient(#8FB2D8,transparent)}
@@ -263,13 +264,11 @@
   @media(max-width:900px){
     .empresa .grid,.org .grid,.contact .grid{grid-template-columns:1fr}
     .svc-grid{grid-template-columns:1fr}
-    .benefits .container{grid-template-columns:repeat(3,1fr);gap:18px 8px}
-    .benefit:nth-child(4),.benefit:nth-child(5){grid-column:span 1}
     .org-teaser{order:-1}
   }
   @media(max-width:560px){
-    .benefits .container{grid-template-columns:repeat(2,1fr)}
-    .benefit img{height:52px}
+    .benefit{padding:6px 32px}
+    .benefit img{height:92px}
     .facts{gap:20px 30px}
     .fact .n{font-size:1.9rem}
     .hero-inner{padding-top:104px}
@@ -344,7 +343,6 @@
         <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
       <img class="hero-logo" src="assets/logo.png" alt="Socicarril" data-hero-logo />
-      <p class="hero-tagline" data-hero-tagline>Trabalhos ferroviários com frota e equipas próprias.</p>
       <p class="hero-sub">
         <b>Construção, renovação e conservação</b> de vias férreas para gestores de infraestrutura,
         grandes empreiteiros, portos e indústria com linha privada. Certificação
@@ -353,14 +351,21 @@
     </div>
   </div>
 
-  <!-- faixa de benefícios (cabeçalho da 1.ª sessão) -->
+  <!-- faixa de benefícios: esteira contínua entre o hero e a próxima secção -->
   <div class="benefits">
-    <div class="container">
-      <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /><span>Obras no prazo</span></div>
-      <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /><span>Menor custo</span></div>
-      <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /><span>Planeamento</span></div>
-      <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /><span>Inovação</span></div>
-      <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /><span>Sustentabilidade</span></div>
+    <div class="benefit-wrap">
+      <div class="benefit-track" id="benefitMarquee">
+        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /><span>Obras no prazo</span></div>
+        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /><span>Menor custo</span></div>
+        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /><span>Planeamento</span></div>
+        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /><span>Inovação</span></div>
+        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /><span>Sustentabilidade</span></div>
+        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /><span>Obras no prazo</span></div>
+        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /><span>Menor custo</span></div>
+        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /><span>Planeamento</span></div>
+        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /><span>Inovação</span></div>
+        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /><span>Sustentabilidade</span></div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll"><span class="ln"></span>Rolar</div>
@@ -623,9 +628,8 @@
   var tl = gsap.timeline({ defaults:{ ease:"power3.out" } });
   tl.from(".hero-kicker", { y:16, opacity:0, duration:.8 }, .1)
     .from("[data-hero-logo]", { y:24, opacity:0, duration:1, ease:"power4.out" }, .2)
-    .from("[data-hero-tagline]", { y:18, opacity:0, duration:.8 }, .45)
-    .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .6)
-    .from(".benefit", { y:24, opacity:0, duration:.7, stagger:.08 }, .8)
+    .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .55)
+    .from(".benefits", { opacity:0, duration:.7 }, .9)
     .from(".hero-scroll", { opacity:0, y:-10, duration:.6 }, 1.1);
 
   /* reveal genérico [data-rise] / [data-fade] */
@@ -648,6 +652,9 @@
   gsap.to("#marquee1", { xPercent:-50, repeat:-1, duration:70, ease:"none" });
   gsap.fromTo("#marquee2", { xPercent:-50 }, { xPercent:0, repeat:-1, duration:85, ease:"none" });
   gsap.to("#marquee3", { xPercent:-50, repeat:-1, duration:95, ease:"none" });
+
+  /* esteira de benefícios (infinito, devagar) */
+  gsap.to("#benefitMarquee", { xPercent:-50, repeat:-1, duration:34, ease:"none" });
 
   window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
 })();
