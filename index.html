@@ -116,7 +116,7 @@
     background:linear-gradient(160deg,#0C2A4D 0%,#123963 45%,#0C2A4D 100%)}
   .hero-bg img{position:absolute;inset:0;opacity:.34;mix-blend-mode:luminosity}
   .hero-scrim{position:absolute;inset:0;z-index:1;
-    background:linear-gradient(180deg,rgba(12,42,77,.55),rgba(12,42,77,.2) 40%,rgba(12,42,77,.85))}
+    background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.22) 40%,rgba(0,0,0,.82))}
   /* trilhos em perspetiva (assinatura, puro CSS) */
   .hero-track{position:absolute;inset:0;z-index:1;overflow:hidden;opacity:.5;pointer-events:none}
   .hero-track::before,.hero-track::after{content:"";position:absolute;bottom:-4%;top:34%;width:2px;
@@ -128,18 +128,20 @@
   .hero-kicker{display:flex;align-items:center;gap:16px;margin-bottom:22px}
   .hero-kicker .kicker{color:#9DC1EC}
   .hero-kicker .rail-rule::before,.hero-kicker .rail-rule::after{background:#5C8FC7}
-  .hero h1{font-size:clamp(2.5rem,7vw,5.4rem);color:#fff;max-width:16ch}
-  .hero h1 em{font-style:normal;color:#7FB0E6}
+  .hero-logo{width:clamp(220px,30vw,440px);height:auto;
+    filter:drop-shadow(0 4px 24px rgba(0,0,0,.6)) drop-shadow(0 0 60px rgba(0,0,0,.35))}
+  .hero-tagline{margin-top:24px;font-family:var(--disp);font-weight:700;
+    font-size:clamp(1.3rem,3vw,2.1rem);color:#fff;max-width:20ch;line-height:1.15}
   .hero-sub{margin-top:26px;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:#CBD9E8;line-height:1.7}
   .hero-sub b{color:#fff;font-weight:600}
 
   /* faixa de benefícios (cabeçalho da 1.ª sessão) */
-  .benefits{position:relative;z-index:2;background:rgba(255,255,255,.05);
-    border-top:1px solid rgba(255,255,255,.12);backdrop-filter:blur(4px)}
-  .benefits .container{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-top:20px;padding-bottom:20px}
-  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:6px 4px}
-  .benefit img{width:auto;height:64px;object-fit:contain;filter:drop-shadow(0 6px 14px rgba(0,0,0,.35))}
-  .benefit span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#CBD9E8;line-height:1.35}
+  .benefits{position:relative;z-index:2;background:rgba(255,255,255,.88);
+    border-top:1px solid rgba(255,255,255,.6);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .benefits .container{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding-top:26px;padding-bottom:26px}
+  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;padding:6px 4px}
+  .benefit img{width:auto;height:88px;object-fit:contain}
+  .benefit span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);line-height:1.35;text-align:center}
   .hero-scroll{display:flex;align-items:center;gap:10px;justify-content:center;padding:14px 0 6px;
     font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB2D8;position:relative;z-index:2}
   .hero-scroll .ln{width:1px;height:26px;background:linear-gradient(#8FB2D8,transparent)}
@@ -164,12 +166,13 @@
   .trust-head{display:flex;align-items:center;gap:16px;margin-bottom:30px}
   .trust-head .kicker{color:#9DC1EC}
   .marquee-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
-    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+    mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);margin-bottom:16px}
+  .marquee-wrap:last-of-type{margin-bottom:0}
   .marquee{display:flex;gap:0;width:max-content;will-change:transform}
   .marquee span{font-family:var(--disp);font-weight:700;font-size:clamp(1.1rem,2.4vw,1.7rem);color:rgba(255,255,255,.5);
     padding:0 30px;white-space:nowrap;display:flex;align-items:center;gap:30px}
   .marquee span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--rail)}
-  .iso-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .iso-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:38px}
   .iso{display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.18);border-radius:12px;
     padding:12px 18px;background:rgba(255,255,255,.04)}
   .iso b{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.1em;color:#fff}
@@ -340,10 +343,8 @@
         <span class="kicker">Desde 2002 · Ponte de Sor</span>
         <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
-      <h1 class="mask-group">
-        <span class="mask"><span data-h1>Trabalhos ferroviários</span></span>
-        <span class="mask"><span data-h1>com <em>frota e equipas próprias.</em></span></span>
-      </h1>
+      <img class="hero-logo" src="assets/logo.png" alt="Socicarril" data-hero-logo />
+      <p class="hero-tagline" data-hero-tagline>Trabalhos ferroviários com frota e equipas próprias.</p>
       <p class="hero-sub">
         <b>Construção, renovação e conservação</b> de vias férreas para gestores de infraestrutura,
         grandes empreiteiros, portos e indústria com linha privada. Certificação
@@ -398,13 +399,24 @@
   <div class="container">
     <div class="trust-head">
       <span class="kicker">Principais clientes</span>
-      <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
     </div>
   </div>
   <div class="marquee-wrap">
-    <div class="marquee" id="marquee">
-      <span>Infraestruturas de Portugal<span></span>Mota-Engil Railway<span></span>Sacyr Neopul<span></span>Somafel<span></span>Metropolitano de Lisboa<span></span>CP — Comboios de Portugal<span></span>APA — Porto de Aveiro<span></span>APS — Portos de Sines e Algarve<span></span>Volkswagen Autoeuropa<span></span>Lusíder — Aços Planos<span></span>Biotek<span></span>ADP Fertilizantes<span></span></span>
-      <span>Infraestruturas de Portugal<span></span>Mota-Engil Railway<span></span>Sacyr Neopul<span></span>Somafel<span></span>Metropolitano de Lisboa<span></span>CP — Comboios de Portugal<span></span>APA — Porto de Aveiro<span></span>APS — Portos de Sines e Algarve<span></span>Volkswagen Autoeuropa<span></span>Lusíder — Aços Planos<span></span>Biotek<span></span>ADP Fertilizantes<span></span></span>
+    <div class="marquee" id="marquee1">
+      <span>Infraestruturas de Portugal<span></span>Mota-Engil Railway<span></span>Sacyr Neopul<span></span>Somafel<span></span></span>
+      <span>Infraestruturas de Portugal<span></span>Mota-Engil Railway<span></span>Sacyr Neopul<span></span>Somafel<span></span></span>
+    </div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee" id="marquee2">
+      <span>Metropolitano de Lisboa<span></span>CP — Comboios de Portugal<span></span>APA — Porto de Aveiro<span></span>APS — Portos de Sines e Algarve<span></span></span>
+      <span>Metropolitano de Lisboa<span></span>CP — Comboios de Portugal<span></span>APA — Porto de Aveiro<span></span>APS — Portos de Sines e Algarve<span></span></span>
+    </div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee" id="marquee3">
+      <span>Volkswagen Autoeuropa<span></span>Lusíder — Aços Planos<span></span>Biotek<span></span>ADP Fertilizantes<span></span></span>
+      <span>Volkswagen Autoeuropa<span></span>Lusíder — Aços Planos<span></span>Biotek<span></span>ADP Fertilizantes<span></span></span>
     </div>
   </div>
   <div class="container">
@@ -421,7 +433,7 @@
   <div class="container">
     <div class="sec-head">
       <div class="rail-rule"><i></i><i></i><i></i><i></i><i></i></div>
-      <h2>O que fazemos na via</h2>
+      <h2>Serviços</h2>
       <p>Três frentes de trabalho e uma frota própria que garante rapidez, controlo e autonomia em cada obra.
         Explore os projetos de cada área.</p>
     </div>
@@ -610,7 +622,8 @@
   /* HERO — intro */
   var tl = gsap.timeline({ defaults:{ ease:"power3.out" } });
   tl.from(".hero-kicker", { y:16, opacity:0, duration:.8 }, .1)
-    .from(".hero h1 .mask > *", { yPercent:120, duration:1, stagger:.14, ease:"power4.out" }, .2)
+    .from("[data-hero-logo]", { y:24, opacity:0, duration:1, ease:"power4.out" }, .2)
+    .from("[data-hero-tagline]", { y:18, opacity:0, duration:.8 }, .45)
     .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .6)
     .from(".benefit", { y:24, opacity:0, duration:.7, stagger:.08 }, .8)
     .from(".hero-scroll", { opacity:0, y:-10, duration:.6 }, 1.1);
@@ -631,8 +644,10 @@
       scrollTrigger:{ trigger:el, start:"top 82%" } });
   });
 
-  /* marquee de clientes (infinito) */
-  gsap.to("#marquee", { xPercent:-50, repeat:-1, duration:36, ease:"none" });
+  /* marquee de clientes (infinito, 3 linhas, velocidades diferentes) */
+  gsap.to("#marquee1", { xPercent:-50, repeat:-1, duration:70, ease:"none" });
+  gsap.fromTo("#marquee2", { xPercent:-50 }, { xPercent:0, repeat:-1, duration:85, ease:"none" });
+  gsap.to("#marquee3", { xPercent:-50, repeat:-1, duration:95, ease:"none" });
 
   window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
 })();
