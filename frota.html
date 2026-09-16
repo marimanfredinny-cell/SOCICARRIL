@@ -44,11 +44,6 @@
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
   .shot{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--deep);
     box-shadow:0 18px 44px -26px rgba(12,42,77,.6)}
-  .shot-ph{position:absolute;inset:0;background:linear-gradient(160deg,#12406e,#0C2A4D)}
-  .shot-ph::before{content:"";position:absolute;inset:0;opacity:.5;
-    background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.06) 30px 32px)}
-  .shot-ph::after{content:attr(data-ph);position:absolute;left:16px;bottom:14px;font-family:var(--mono);
-    font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
   .shot img{position:absolute;inset:0;transition:transform 1s var(--ease)}
   .shot:hover img{transform:scale(1.05)}
 
@@ -99,42 +94,29 @@
   <div class="container">
     <div class="grid">
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 01"></div>
-          <!-- <img src="assets/frota-01.jpg" alt="frota 01" /> -->
+          <img src="assets/frota-1.png" alt="Giratória Liebherr 900" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 02"></div>
-          <!-- <img src="assets/frota-02.jpg" alt="frota 02" /> -->
+          <img src="assets/frota-2.png" alt="Dumper AUSA" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 03"></div>
-          <!-- <img src="assets/frota-03.jpg" alt="frota 03" /> -->
+          <img src="assets/frota-3.png" alt="Giratória Liebherr 900" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 04"></div>
-          <!-- <img src="assets/frota-04.jpg" alt="frota 04" /> -->
+          <img src="assets/frota-4.png" alt="Giratória Liebherr 900" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 05"></div>
-          <!-- <img src="assets/frota-05.jpg" alt="frota 05" /> -->
+          <img src="assets/frota-5.png" alt="Pá carregadora Case" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 06"></div>
-          <!-- <img src="assets/frota-06.jpg" alt="frota 06" /> -->
+          <img src="assets/frota-6.png" alt="Giratória Liebherr 900" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 07"></div>
-          <!-- <img src="assets/frota-07.jpg" alt="frota 07" /> -->
+          <img src="assets/frota-7.png" alt="Giratória Liebherr 900" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="frota · 08"></div>
-          <!-- <img src="assets/frota-08.jpg" alt="frota 08" /> -->
+          <img src="assets/frota-8.png" alt="Retroescavadora Komatsu" />
         </figure>
-    </div>
-    <div class="note">
-      <strong>Espaço para as fotos reais.</strong> Cada quadro acima é um lugar reservado — quando as fotografias
-      de frota estiverem no repositório, descomente a linha <code>&lt;img&gt;</code> dentro de cada quadro e aponte para
-      <code>assets/frota-01.jpg</code>, <code>assets/frota-02.jpg</code>, e por aí adiante.
     </div>
     <div class="cta-row">
       <a class="btn btn-ghost" href="index.html#servicos">
