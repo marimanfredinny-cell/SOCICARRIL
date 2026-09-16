@@ -85,7 +85,7 @@
   .menu::before{content:"";position:absolute;inset:0;pointer-events:none;
     background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(124,140,160,.06) 46px 48px)}
   .menu-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 clamp(1.5rem,6vw,5rem);position:relative}
-  .menu-links a{font-family:var(--disp);font-weight:800;font-size:clamp(2rem,8vw,3.4rem);color:var(--deep);
+  .menu-links a{font-family:var(--disp);font-weight:800;font-size:clamp(1.4rem,6vw,2.2rem);color:var(--deep);
     padding:10px 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:18px;
     opacity:0;transform:translateY(30px);transition:all .5s var(--ease),color .2s}
   .menu-links a span{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--rail);letter-spacing:.2em}
@@ -240,6 +240,7 @@
   @media(max-width:900px){
     .nav-desktop{display:none}
     .burger{display:flex}
+    .brand-logo{height:52px}
     .empresa .grid,.org .grid,.contact .grid{grid-template-columns:1fr}
     .empresa-text{display:contents}
     .empresa-intro{order:1}
