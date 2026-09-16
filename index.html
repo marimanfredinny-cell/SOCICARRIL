@@ -101,18 +101,18 @@
   .menu-foot a{color:var(--rail)}
 
   /* ---------- hero ---------- */
-  .hero{min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--deep);color:#fff}
+  .hero{min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--mist);color:var(--ink)}
   .hero-bg{position:absolute;inset:0;z-index:0;
-    background:linear-gradient(160deg,#0C2A4D 0%,#123963 45%,#0C2A4D 100%)}
+    background:linear-gradient(160deg,#EAF0F5 0%,#F6F8FA 45%,#EAF0F5 100%)}
   .hero-bg img{position:absolute;inset:0}
   .hero-scrim{position:absolute;inset:0;z-index:1;
-    background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.45) 45%,rgba(0,0,0,.82))}
+    background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,255,255,.5) 45%,rgba(255,255,255,.85))}
   .hero-inner{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;
     justify-content:center;text-align:center;padding-top:120px;padding-bottom:36px}
   .hero-logo{width:clamp(240px,32vw,480px);height:auto;margin:0 auto;
-    filter:drop-shadow(0 4px 24px rgba(0,0,0,.6)) drop-shadow(0 0 60px rgba(0,0,0,.35))}
-  .hero-sub{margin:26px auto 0;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:#CBD9E8;line-height:1.7}
-  .hero-sub b{color:#fff;font-weight:600}
+    filter:drop-shadow(0 4px 24px rgba(255,255,255,.7)) drop-shadow(0 0 50px rgba(255,255,255,.5))}
+  .hero-sub{margin:26px auto 0;max-width:56ch;font-size:clamp(1rem,1.5vw,1.2rem);color:var(--ink-soft);line-height:1.7}
+  .hero-sub b{color:var(--deep);font-weight:600}
 
   /* faixa de benefícios (esteira de ícones entre secções, fundo branco) */
   .benefits{position:relative;z-index:2;background:#fff;overflow:hidden;padding:28px 0 12px}
@@ -123,8 +123,8 @@
     padding:6px 56px;flex:0 0 auto}
   .benefit img{width:auto;height:170px;object-fit:contain}
   .hero-scroll{display:flex;align-items:center;gap:10px;justify-content:center;padding:14px 0 6px;
-    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB2D8;position:relative;z-index:2}
-  .hero-scroll .ln{width:1px;height:26px;background:linear-gradient(#8FB2D8,transparent)}
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);position:relative;z-index:2}
+  .hero-scroll .ln{width:1px;height:26px;background:linear-gradient(var(--steel),transparent)}
 
   /* ---------- empresa (sobre) ---------- */
   .empresa{padding-bottom:clamp(5rem,11vw,9rem);background:var(--paper)}
