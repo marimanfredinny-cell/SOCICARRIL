@@ -242,8 +242,10 @@
     .nav-desktop{display:none}
     .burger{display:flex}
     .empresa .grid,.org .grid,.contact .grid{grid-template-columns:1fr}
-    .truck-wrap{order:1}
-    .empresa .grid > .empresa-text{order:2}
+    .empresa-text{display:contents}
+    .empresa-intro{order:1}
+    .truck-wrap{order:2}
+    .facts{order:3}
     .org-teaser{order:-1}
   }
   @media(max-width:560px){
@@ -363,14 +365,16 @@
         <img src="assets/caminhao.png" alt="Camião da frota Socicarril" />
       </div>
       <div class="empresa-text">
-        <h2 data-rise>Quem somos nós</h2>
-        <p class="lead" data-rise>A Socicarril é uma empresa portuguesa fundada em 2002, especializada em trabalhos
-          ferroviários — construção, renovação e conservação de vias férreas.</p>
-        <p data-rise>Nasceu para responder ao mercado das subempreitadas, com destaque para grandes montagens e
-          desmontagens de via e para a manutenção da rede ferroviária nacional. Ao longo de mais de duas décadas
-          conquistou adjudicações de grande relevância, sustentadas na confiança dos clientes e no desempenho das suas equipas.</p>
-        <p data-rise>Em 2012 iniciou a expansão para o continente africano, alargando horizontes e mantendo sempre
-          os mesmos critérios de qualidade, ambiente e segurança.</p>
+        <div class="empresa-intro">
+          <h2 data-rise>Quem somos nós</h2>
+          <p class="lead" data-rise>A Socicarril é uma empresa portuguesa fundada em 2002, especializada em trabalhos
+            ferroviários — construção, renovação e conservação de vias férreas.</p>
+          <p data-rise>Nasceu para responder ao mercado das subempreitadas, com destaque para grandes montagens e
+            desmontagens de via e para a manutenção da rede ferroviária nacional. Ao longo de mais de duas décadas
+            conquistou adjudicações de grande relevância, sustentadas na confiança dos clientes e no desempenho das suas equipas.</p>
+          <p data-rise>Em 2012 iniciou a expansão para o continente africano, alargando horizontes e mantendo sempre
+            os mesmos critérios de qualidade, ambiente e segurança.</p>
+        </div>
         <div class="facts" data-rise>
           <div class="fact"><div class="n">2002</div><div class="l">Ano de fundação</div></div>
           <div class="fact"><div class="n">3</div><div class="l">Certificações ISO</div></div>
