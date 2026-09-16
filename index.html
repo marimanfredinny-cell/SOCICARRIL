@@ -119,11 +119,9 @@
   .benefit-wrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
   .benefit-track{display:flex;width:max-content;will-change:transform}
-  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;
+  .benefit{display:flex;flex-direction:column;align-items:center;text-align:center;
     padding:6px 56px;flex:0 0 auto}
-  .benefit img{width:auto;height:128px;object-fit:contain}
-  .benefit span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-    color:var(--ink-soft);line-height:1.35;text-align:center;white-space:nowrap}
+  .benefit img{width:auto;height:170px;object-fit:contain}
   .hero-scroll{display:flex;align-items:center;gap:10px;justify-content:center;padding:14px 0 6px;
     font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8FB2D8;position:relative;z-index:2}
   .hero-scroll .ln{width:1px;height:26px;background:linear-gradient(#8FB2D8,transparent)}
@@ -250,7 +248,7 @@
   @media(max-width:560px){
     .svc{top:80px;min-height:340px;margin-bottom:10vh}
     .benefit{padding:6px 32px}
-    .benefit img{height:92px}
+    .benefit img{height:120px}
     .facts{gap:20px 30px}
     .fact .n{font-size:1.9rem}
     .hero-inner{padding-top:104px}
@@ -320,7 +318,10 @@
 <!-- ============ 1. HERO ============ -->
 <section class="hero" id="inicio">
   <div class="hero-bg">
-    <img src="assets/home.png" alt="" />
+    <picture>
+      <source media="(max-width:900px)" srcset="assets/headmobilea.png" />
+      <img src="assets/headdesktop.png" alt="" />
+    </picture>
   </div>
   <div class="hero-scrim"></div>
 
@@ -332,29 +333,28 @@
       </p>
     </div>
   </div>
-
-  <!-- faixa de benefícios: esteira contínua entre o hero e a próxima secção -->
-  <div class="benefits">
-    <div class="benefit-wrap">
-      <div class="benefit-track" id="benefitMarquee">
-        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /><span>Obras no prazo</span></div>
-        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /><span>Menor custo</span></div>
-        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /><span>Planeamento</span></div>
-        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /><span>Inovação</span></div>
-        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /><span>Sustentabilidade</span></div>
-        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /><span>Obras no prazo</span></div>
-        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /><span>Menor custo</span></div>
-        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /><span>Planeamento</span></div>
-        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /><span>Inovação</span></div>
-        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /><span>Sustentabilidade</span></div>
-      </div>
-    </div>
-  </div>
   <div class="hero-scroll"><span class="ln"></span>Rolar</div>
 </section>
 
 <!-- ============ 2. A EMPRESA (caminhão desliza da esquerda) ============ -->
 <section class="empresa" id="empresa">
+  <!-- faixa de benefícios: esteira contínua, acima do camião -->
+  <div class="benefits">
+    <div class="benefit-wrap">
+      <div class="benefit-track" id="benefitMarquee">
+        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /></div>
+        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /></div>
+        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /></div>
+        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /></div>
+        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /></div>
+        <div class="benefit"><img src="assets/b-prazo.png" alt="Obras entregues no prazo" /></div>
+        <div class="benefit"><img src="assets/b-custo.png" alt="Menor custo" /></div>
+        <div class="benefit"><img src="assets/b-planeamento.png" alt="Planeamento" /></div>
+        <div class="benefit"><img src="assets/b-inovacao.png" alt="Inovação" /></div>
+        <div class="benefit"><img src="assets/b-sustentavel.png" alt="Desenvolvimento sustentável" /></div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="grid">
       <div class="truck-wrap" data-truck>
@@ -419,7 +419,7 @@
   <div class="container">
     <div class="sec-head">
       <h2>Serviços</h2>
-      <p>Três frentes de trabalho e uma frota própria que garante rapidez, controlo e autonomia em cada obra.
+      <p>Três áreas de atuação e uma frota própria que garante rapidez, controlo e autonomia em cada obra.
         Explore os projetos de cada área.</p>
     </div>
     <div class="svc-grid">
@@ -437,7 +437,7 @@
       </a>
 
       <a class="svc" href="projetos-conservacao.html" data-rise>
-        <div class="svc-media"><img src="assets/maquina.jpg" alt="Conservação e manutenção" /></div>
+        <div class="svc-media"><img src="assets/home.png" alt="Conservação e manutenção" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">02 — Conservação</span>
@@ -461,7 +461,7 @@
       </a>
 
       <a class="svc" href="frota.html" data-rise>
-        <div class="svc-media"><img src="assets/home.png" alt="Frota própria" /></div>
+        <div class="svc-media"><img src="assets/maquina.jpg" alt="Frota própria" /></div>
         <div class="svc-scrim"></div>
         <div class="svc-body">
           <span class="num">04 — Frota própria</span>
@@ -521,8 +521,8 @@
           <div class="val">Zona Industrial, Rua A, Lote 6<br>7400-401 Ponte de Sor</div>
         </div>
         <div class="cinfo">
-          <div class="lbl">Telefone · Fax</div>
-          <div class="val">Tel. <a href="tel:+351242202650">242 202 650</a> · Fax 242 202 652<br>
+          <div class="lbl">Telefone</div>
+          <div class="val">Tel. <a href="tel:+351242202650">242 202 650</a><br>
             <small style="color:#9DB4CE">Chamada para a rede fixa nacional</small></div>
         </div>
         <div class="cinfo">
@@ -532,8 +532,6 @@
         <div class="socials">
           <a href="mailto:geral@socicarril.pt">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>E-mail</a>
-          <a href="https://facebook.com/SOCICARRIL" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h3l1-3h-4V9c0-.6.4-1 1-1z"/></svg>Facebook</a>
           <a href="https://www.linkedin.com/company/socicarril-sociedade-de-constru%C3%A7%C3%B5es-ferrovi%C3%A1rias-lda/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.5H3.9V20h3zM5.4 4a1.7 1.7 0 1 0 0 3.5 1.7 1.7 0 0 0 0-3.5zM20 20h-3v-6c0-1.5-.6-2.3-1.8-2.3-1 0-1.6.7-1.8 1.4-.1.2-.1.6-.1.9V20h-3V8.5h3v1.6c.4-.7 1.3-1.7 3-1.7 2.2 0 3.7 1.4 3.7 4.5V20z"/></svg>LinkedIn</a>
           <a href="https://wa.me/351242202650" target="_blank" rel="noopener">
@@ -602,8 +600,10 @@
   var tl = gsap.timeline({ defaults:{ ease:"power3.out" } });
   tl.from("[data-hero-logo]", { y:24, opacity:0, duration:1, ease:"power4.out" }, .1)
     .from(".hero-sub", { y:20, opacity:0, duration:.9 }, .5)
-    .from(".benefits", { opacity:0, duration:.7 }, .9)
-    .from(".hero-scroll", { opacity:0, y:-10, duration:.6 }, 1.1);
+    .from(".hero-scroll", { opacity:0, y:-10, duration:.6 }, .9);
+
+  gsap.from(".benefits", { opacity:0, duration:.8,
+    scrollTrigger:{ trigger:".benefits", start:"top 95%" } });
 
   /* reveal genérico [data-rise] / [data-fade] */
   gsap.utils.toArray("[data-rise]").forEach(function(el){
