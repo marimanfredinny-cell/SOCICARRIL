@@ -44,11 +44,6 @@
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
   .shot{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--deep);
     box-shadow:0 18px 44px -26px rgba(12,42,77,.6)}
-  .shot-ph{position:absolute;inset:0;background:linear-gradient(160deg,#12406e,#0C2A4D)}
-  .shot-ph::before{content:"";position:absolute;inset:0;opacity:.5;
-    background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(255,255,255,.06) 30px 32px)}
-  .shot-ph::after{content:attr(data-ph);position:absolute;left:16px;bottom:14px;font-family:var(--mono);
-    font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
   .shot img{position:absolute;inset:0;transition:transform 1s var(--ease)}
   .shot:hover img{transform:scale(1.05)}
 
@@ -99,35 +94,24 @@
   <div class="container">
     <div class="grid">
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 01"></div>
-          <!-- <img src="assets/construcao-01.jpg" alt="construcao 01" /> -->
+          <img src="img/obras/chatgpt-image-16-09-2026-14-14-19-3-800.webp" alt="Descarga de balastro em pátio ferroviário" loading="lazy" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 02"></div>
-          <!-- <img src="assets/construcao-02.jpg" alt="construcao 02" /> -->
+          <img src="img/obras/chatgpt-image-16-09-2026-14-14-20-5-800.webp" alt="Assentamento de carril sobre travessas de betão" loading="lazy" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 03"></div>
-          <!-- <img src="assets/construcao-03.jpg" alt="construcao 03" /> -->
+          <img src="img/obras/chatgpt-image-16-09-2026-14-24-42-1-800.webp" alt="Giratória a posicionar painel de via junto a estação" loading="lazy" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 04"></div>
-          <!-- <img src="assets/construcao-04.jpg" alt="construcao 04" /> -->
+          <img src="img/obras/chatgpt-image-16-09-2026-14-24-43-3-800.webp" alt="Montagem de nova via em dupla via — operação em África" loading="lazy" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 05"></div>
-          <!-- <img src="assets/construcao-05.jpg" alt="construcao 05" /> -->
+          <img src="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-1-800.webp" alt="Construção de aparelho de via com giratória Liebherr" loading="lazy" />
         </figure>
         <figure class="shot" data-rise>
-          <div class="shot-ph" data-ph="construcao · 06"></div>
-          <!-- <img src="assets/construcao-06.jpg" alt="construcao 06" /> -->
+          <img src="img/obras/ramal-ferroviario-de-acesso-ao-porto-de-aveiro-3a-fase-800.webp" alt="Ramal Ferroviário de Acesso ao Porto de Aveiro — 3.ª Fase" loading="lazy" />
         </figure>
-    </div>
-    <div class="note">
-      <strong>Espaço para as fotos reais.</strong> Cada quadro acima é um lugar reservado — quando as fotografias
-      de construcao estiverem no repositório, descomente a linha <code>&lt;img&gt;</code> dentro de cada quadro e aponte para
-      <code>assets/construcao-01.jpg</code>, <code>assets/construcao-02.jpg</code>, e por aí adiante.
-    </div>
+</div>
     <div class="cta-row">
       <a class="btn btn-ghost" href="index.html#servicos">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Voltar aos serviços</a>
