@@ -67,6 +67,20 @@
   .no-anim [data-rise]{opacity:1!important;transform:none!important}
   @media(prefers-reduced-motion:reduce){[data-rise]{opacity:1!important;transform:none!important}}
   .anim [data-rise]{opacity:0;transform:translateY(30px)}
+
+  .lightbox{position:fixed;inset:0;z-index:300;background:rgba(6,12,20,.94);display:flex;align-items:center;justify-content:center;
+    padding:24px;opacity:0;visibility:hidden;transition:opacity .25s var(--ease)}
+  .lightbox.open{opacity:1;visibility:visible}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+    transform:scale(.92);transition:transform .3s var(--ease);object-fit:contain}
+  .lightbox.open img{transform:scale(1)}
+  .lightbox-close{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s}
+  .lightbox-close:hover{background:rgba(255,255,255,.25)}
+  .lightbox-cap{position:fixed;left:0;right:0;bottom:22px;text-align:center;color:#fff;font-family:var(--mono);
+    font-size:12px;letter-spacing:.04em;padding:0 20px}
+  @media(prefers-reduced-motion:reduce){.lightbox,.lightbox img{transition:none}}
 </style>
 </head>
 <body>
@@ -98,127 +112,127 @@
   <div class="container">
     <div class="grid">
         <figure class="shot" data-rise>
-          <a href="img/obras/home.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Corgo – Levantamento da Via e Reperfilamento da Plataforma">
+          <a href="img/obras/home.webp" aria-label="Ver foto ampliada — Linha do Corgo – Levantamento da Via e Reperfilamento da Plataforma">
             <img src="img/obras/home-800.webp" alt="Linha do Corgo – Levantamento da Via e Reperfilamento da Plataforma" loading="lazy" />
             <figcaption class="cap">Linha do Corgo – Levantamento da Via e Reperfilamento da Plataforma</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-42-1.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Sena – Moçambique">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-42-1.webp" aria-label="Ver foto ampliada — Linha do Sena – Moçambique">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-42-1-800.webp" alt="Linha do Sena – Moçambique" loading="lazy" />
             <figcaption class="cap">Linha do Sena – Moçambique</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-42-2.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Algarve – Estações de Tavira, Cacela e Vila Real de S. António">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-42-2.webp" aria-label="Ver foto ampliada — Linha do Algarve – Estações de Tavira, Cacela e Vila Real de S. António">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-42-2-800.webp" alt="Linha do Algarve – Estações de Tavira, Cacela e Vila Real de S. António" loading="lazy" />
             <figcaption class="cap">Linha do Algarve – Estações de Tavira, Cacela e Vila Real de S. António</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-43-3.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Nacala Railway Project – Reabilitação de Infraestrutura e Superestrutura">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-43-3.webp" aria-label="Ver foto ampliada — Nacala Railway Project – Reabilitação de Infraestrutura e Superestrutura">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-43-3-800.webp" alt="Nacala Railway Project – Reabilitação de Infraestrutura e Superestrutura" loading="lazy" />
             <figcaption class="cap">Nacala Railway Project – Reabilitação de Infraestrutura e Superestrutura</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-7.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Troço Cuamba–Mitande (110 km) – Moçambique">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-7.webp" aria-label="Ver foto ampliada — Troço Cuamba–Mitande (110 km) – Moçambique">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-44-7-800.webp" alt="Troço Cuamba–Mitande (110 km) – Moçambique" loading="lazy" />
             <figcaption class="cap">Troço Cuamba–Mitande (110 km) – Moçambique</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-45-9.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Alta – Pontes de Várzeas, Meligioso e Trezói">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-45-9.webp" aria-label="Ver foto ampliada — Linha da Beira Alta – Pontes de Várzeas, Meligioso e Trezói">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-45-9-800.webp" alt="Linha da Beira Alta – Pontes de Várzeas, Meligioso e Trezói" loading="lazy" />
             <figcaption class="cap">Linha da Beira Alta – Pontes de Várzeas, Meligioso e Trezói</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-52-57.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Baixa – Troço Abrantes–Ródão">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-52-57.webp" aria-label="Ver foto ampliada — Linha da Beira Baixa – Troço Abrantes–Ródão">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-52-57-800.webp" alt="Linha da Beira Baixa – Troço Abrantes–Ródão" loading="lazy" />
             <figcaption class="cap">Linha da Beira Baixa – Troço Abrantes–Ródão</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-54-27.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Leste – Troço Elvas–Fronteira">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-54-27.webp" aria-label="Ver foto ampliada — Linha do Leste – Troço Elvas–Fronteira">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-54-27-800.webp" alt="Linha do Leste – Troço Elvas–Fronteira" loading="lazy" />
             <figcaption class="cap">Linha do Leste – Troço Elvas–Fronteira</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-19-3.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Norte – Triagem do Entroncamento">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-19-3.webp" aria-label="Ver foto ampliada — Linha do Norte – Triagem do Entroncamento">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-19-3-800.webp" alt="Linha do Norte – Triagem do Entroncamento" loading="lazy" />
             <figcaption class="cap">Linha do Norte – Triagem do Entroncamento</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-4.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Guarda/Vilar Formoso">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-4.webp" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Guarda/Vilar Formoso">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-20-4-800.webp" alt="Linha da Beira Alta – Troço Guarda/Vilar Formoso" loading="lazy" />
             <figcaption class="cap">Linha da Beira Alta – Troço Guarda/Vilar Formoso</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-5.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Requalificação do Ramal do Porto de Sines">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-5.webp" aria-label="Ver foto ampliada — Requalificação do Ramal do Porto de Sines">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-20-5-800.webp" alt="Requalificação do Ramal do Porto de Sines" loading="lazy" />
             <figcaption class="cap">Requalificação do Ramal do Porto de Sines</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-1.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Cerdeira/Vilar Formoso">
+          <a href="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-1.webp" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Cerdeira/Vilar Formoso">
             <img src="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-1-800.webp" alt="Linha da Beira Alta – Troço Cerdeira/Vilar Formoso" loading="lazy" />
             <figcaption class="cap">Linha da Beira Alta – Troço Cerdeira/Vilar Formoso</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-6.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Via entre Évora e Elvas/Fronteira">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-20-6.webp" aria-label="Ver foto ampliada — Via entre Évora e Elvas/Fronteira">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-20-6-800.webp" alt="Via entre Évora e Elvas/Fronteira" loading="lazy" />
             <figcaption class="cap">Via entre Évora e Elvas/Fronteira</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-21-7.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Celorico da Beira/Guarda">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-21-7.webp" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Celorico da Beira/Guarda">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-21-7-800.webp" alt="Linha da Beira Alta – Troço Celorico da Beira/Guarda" loading="lazy" />
             <figcaption class="cap">Linha da Beira Alta – Troço Celorico da Beira/Guarda</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-22-8.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Ligação Ferroviária Sines – Linha do Sul">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-22-8.webp" aria-label="Ver foto ampliada — Ligação Ferroviária Sines – Linha do Sul">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-22-8-800.webp" alt="Ligação Ferroviária Sines – Linha do Sul" loading="lazy" />
             <figcaption class="cap">Ligação Ferroviária Sines – Linha do Sul</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-22-9.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Mangualde/Celorico da Beira">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-22-9.webp" aria-label="Ver foto ampliada — Linha da Beira Alta – Troço Mangualde/Celorico da Beira">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-22-9-800.webp" alt="Linha da Beira Alta – Troço Mangualde/Celorico da Beira" loading="lazy" />
             <figcaption class="cap">Linha da Beira Alta – Troço Mangualde/Celorico da Beira</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-14-23-10.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — TJD+DS S. Sebastião I – Linha Azul, Metro de Lisboa">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-14-23-10.webp" aria-label="Ver foto ampliada — TJD+DS S. Sebastião I – Linha Azul, Metro de Lisboa">
             <img src="img/obras/chatgpt-image-16-09-2026-14-14-23-10-800.webp" alt="TJD+DS S. Sebastião I – Linha Azul, Metro de Lisboa" loading="lazy" />
             <figcaption class="cap">TJD+DS S. Sebastião I – Linha Azul, Metro de Lisboa</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-2.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Norte – Layout de Mato Miranda">
+          <a href="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-2.webp" aria-label="Ver foto ampliada — Linha do Norte – Layout de Mato Miranda">
             <img src="img/obras/imagem-do-chatgpt-29-de-set-de-2026-10-29-19-2-800.webp" alt="Linha do Norte – Layout de Mato Miranda" loading="lazy" />
             <figcaption class="cap">Linha do Norte – Layout de Mato Miranda</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-42-2.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Oeste – Troço Mira Sintra/Meleças">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-42-2.webp" aria-label="Ver foto ampliada — Linha do Oeste – Troço Mira Sintra/Meleças">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-42-2-800.webp" alt="Linha do Oeste – Troço Mira Sintra/Meleças" loading="lazy" />
             <figcaption class="cap">Linha do Oeste – Troço Mira Sintra/Meleças</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-43-3.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha de Cascais – Desvios em Cais do Sodré">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-43-3.webp" aria-label="Ver foto ampliada — Linha de Cascais – Desvios em Cais do Sodré">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-43-3-800.webp" alt="Linha de Cascais – Desvios em Cais do Sodré" loading="lazy" />
             <figcaption class="cap">Linha de Cascais – Desvios em Cais do Sodré</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-39-1.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Linha do Vouga – Oliveira de Azeméis/Sernada do Vouga">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-39-1.webp" aria-label="Ver foto ampliada — Linha do Vouga – Oliveira de Azeméis/Sernada do Vouga">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-04-39-1-800.webp" alt="Linha do Vouga – Oliveira de Azeméis/Sernada do Vouga" loading="lazy" />
             <figcaption class="cap">Linha do Vouga – Oliveira de Azeméis/Sernada do Vouga</figcaption>
           </a>
@@ -248,6 +262,41 @@
     gsap.to(el,{y:0,opacity:1,duration:.8,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 90%"}});
   });
   window.addEventListener("load",function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
+<script>
+(function(){
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var lbCap = document.getElementById("lightboxCap");
+  var lbClose = document.getElementById("lightboxClose");
+  function openLightbox(src, alt){
+    lbImg.src = src; lbImg.alt = alt || ""; lbCap.textContent = alt || "";
+    lb.classList.add("open"); lb.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox(){
+    lb.classList.remove("open"); lb.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+  document.querySelectorAll(".shot a").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var img = a.querySelector("img");
+      openLightbox(a.getAttribute("href"), img ? img.alt : "");
+    });
+  });
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", function(e){ if(e.target === lb) closeLightbox(); });
+  window.addEventListener("keydown", function(e){ if(e.key === "Escape") closeLightbox(); });
 })();
 </script>
 </body>

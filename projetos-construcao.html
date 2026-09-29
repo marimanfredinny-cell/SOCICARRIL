@@ -67,6 +67,20 @@
   .no-anim [data-rise]{opacity:1!important;transform:none!important}
   @media(prefers-reduced-motion:reduce){[data-rise]{opacity:1!important;transform:none!important}}
   .anim [data-rise]{opacity:0;transform:translateY(30px)}
+
+  .lightbox{position:fixed;inset:0;z-index:300;background:rgba(6,12,20,.94);display:flex;align-items:center;justify-content:center;
+    padding:24px;opacity:0;visibility:hidden;transition:opacity .25s var(--ease)}
+  .lightbox.open{opacity:1;visibility:visible}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+    transform:scale(.92);transition:transform .3s var(--ease);object-fit:contain}
+  .lightbox.open img{transform:scale(1)}
+  .lightbox-close{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s}
+  .lightbox-close:hover{background:rgba(255,255,255,.25)}
+  .lightbox-cap{position:fixed;left:0;right:0;bottom:22px;text-align:center;color:#fff;font-family:var(--mono);
+    font-size:12px;letter-spacing:.04em;padding:0 20px}
+  @media(prefers-reduced-motion:reduce){.lightbox,.lightbox img{transition:none}}
 </style>
 </head>
 <body>
@@ -98,49 +112,49 @@
   <div class="container">
     <div class="grid">
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-42-47.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Complexo Ferroviário do SPC da Bobadela">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-42-47.webp" aria-label="Ver foto ampliada — Complexo Ferroviário do SPC da Bobadela">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-42-47-800.webp" alt="Complexo Ferroviário do SPC da Bobadela" loading="lazy" />
             <figcaption class="cap">Complexo Ferroviário do SPC da Bobadela</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/ramal-ferroviario-de-acesso-ao-porto-de-aveiro-3a-fase.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Ramal Ferroviário de Acesso ao Porto de Aveiro – 3ª Fase">
+          <a href="img/obras/ramal-ferroviario-de-acesso-ao-porto-de-aveiro-3a-fase.webp" aria-label="Ver foto ampliada — Ramal Ferroviário de Acesso ao Porto de Aveiro – 3ª Fase">
             <img src="img/obras/ramal-ferroviario-de-acesso-ao-porto-de-aveiro-3a-fase-800.webp" alt="Ramal Ferroviário de Acesso ao Porto de Aveiro – 3ª Fase" loading="lazy" />
             <figcaption class="cap">Ramal Ferroviário de Acesso ao Porto de Aveiro – 3ª Fase</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-47-00.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Variante de Alcácer (2ª fase) – Via-Férrea e Instalações Fixas de Tracção Eléctrica">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-47-00.webp" aria-label="Ver foto ampliada — Variante de Alcácer (2ª fase) – Via-Férrea e Instalações Fixas de Tracção Eléctrica">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-47-00-800.webp" alt="Variante de Alcácer (2ª fase) – Via-Férrea e Instalações Fixas de Tracção Eléctrica" loading="lazy" />
             <figcaption class="cap">Variante de Alcácer (2ª fase) – Via-Férrea e Instalações Fixas de Tracção Eléctrica</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-51-06.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Cimenfort Industrial – Ramal Ferroviário de Ligação ao CFB, Angola">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-51-06.webp" aria-label="Ver foto ampliada — Cimenfort Industrial – Ramal Ferroviário de Ligação ao CFB, Angola">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-51-06-800.webp" alt="Cimenfort Industrial – Ramal Ferroviário de Ligação ao CFB, Angola" loading="lazy" />
             <figcaption class="cap">Cimenfort Industrial – Ramal Ferroviário de Ligação ao CFB, Angola</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-6.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Instalação de Via-Férrea nos Troços Oriente/Aeroporto – Metro de Lisboa">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-6.webp" aria-label="Ver foto ampliada — Instalação de Via-Férrea nos Troços Oriente/Aeroporto – Metro de Lisboa">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-44-6-800.webp" alt="Instalação de Via-Férrea nos Troços Oriente/Aeroporto – Metro de Lisboa" loading="lazy" />
             <figcaption class="cap">Instalação de Via-Férrea nos Troços Oriente/Aeroporto – Metro de Lisboa</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-45-8.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Reforço dos Interfaces Ferroviários dos Terminais do Porto de Aveiro">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-45-8.webp" aria-label="Ver foto ampliada — Reforço dos Interfaces Ferroviários dos Terminais do Porto de Aveiro">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-45-8-800.webp" alt="Reforço dos Interfaces Ferroviários dos Terminais do Porto de Aveiro" loading="lazy" />
             <figcaption class="cap">Reforço dos Interfaces Ferroviários dos Terminais do Porto de Aveiro</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-46-10.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Construção do Ramal Ferroviário da Alcont">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-46-10.webp" aria-label="Ver foto ampliada — Construção do Ramal Ferroviário da Alcont">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-46-10-800.webp" alt="Construção do Ramal Ferroviário da Alcont" loading="lazy" />
             <figcaption class="cap">Construção do Ramal Ferroviário da Alcont</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-56-10.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Prolongamento da Linha de Topo – Celbi (Leirosa)">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-56-10.webp" aria-label="Ver foto ampliada — Prolongamento da Linha de Topo – Celbi (Leirosa)">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-14-56-10-800.webp" alt="Prolongamento da Linha de Topo – Celbi (Leirosa)" loading="lazy" />
             <figcaption class="cap">Prolongamento da Linha de Topo – Celbi (Leirosa)</figcaption>
           </a>
@@ -170,6 +184,41 @@
     gsap.to(el,{y:0,opacity:1,duration:.8,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 90%"}});
   });
   window.addEventListener("load",function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
+<script>
+(function(){
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var lbCap = document.getElementById("lightboxCap");
+  var lbClose = document.getElementById("lightboxClose");
+  function openLightbox(src, alt){
+    lbImg.src = src; lbImg.alt = alt || ""; lbCap.textContent = alt || "";
+    lb.classList.add("open"); lb.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox(){
+    lb.classList.remove("open"); lb.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+  document.querySelectorAll(".shot a").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var img = a.querySelector("img");
+      openLightbox(a.getAttribute("href"), img ? img.alt : "");
+    });
+  });
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", function(e){ if(e.target === lb) closeLightbox(); });
+  window.addEventListener("keydown", function(e){ if(e.key === "Escape") closeLightbox(); });
 })();
 </script>
 </body>

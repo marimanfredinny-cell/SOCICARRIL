@@ -67,6 +67,20 @@
   .no-anim [data-rise]{opacity:1!important;transform:none!important}
   @media(prefers-reduced-motion:reduce){[data-rise]{opacity:1!important;transform:none!important}}
   .anim [data-rise]{opacity:0;transform:translateY(30px)}
+
+  .lightbox{position:fixed;inset:0;z-index:300;background:rgba(6,12,20,.94);display:flex;align-items:center;justify-content:center;
+    padding:24px;opacity:0;visibility:hidden;transition:opacity .25s var(--ease)}
+  .lightbox.open{opacity:1;visibility:visible}
+  .lightbox img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7);
+    transform:scale(.92);transition:transform .3s var(--ease);object-fit:contain}
+  .lightbox.open img{transform:scale(1)}
+  .lightbox-close{position:fixed;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:0;
+    background:rgba(255,255,255,.12);color:#fff;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:background .2s}
+  .lightbox-close:hover{background:rgba(255,255,255,.25)}
+  .lightbox-cap{position:fixed;left:0;right:0;bottom:22px;text-align:center;color:#fff;font-family:var(--mono);
+    font-size:12px;letter-spacing:.04em;padding:0 20px}
+  @media(prefers-reduced-motion:reduce){.lightbox,.lightbox img{transition:none}}
 </style>
 </head>
 <body>
@@ -98,19 +112,19 @@
   <div class="container">
     <div class="grid">
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-43-4.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Manutenção nas Especialidades de Via e Catenária – Lote 3">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-43-4.webp" aria-label="Ver foto ampliada — Manutenção nas Especialidades de Via e Catenária – Lote 3">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-43-4-800.webp" alt="Manutenção nas Especialidades de Via e Catenária – Lote 3" loading="lazy" />
             <figcaption class="cap">Manutenção nas Especialidades de Via e Catenária – Lote 3</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-5.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Beneficiação de Acesso Pedonal e Ferroviário – Complexo do Entroncamento">
+          <a href="img/obras/chatgpt-image-16-09-2026-14-24-44-5.webp" aria-label="Ver foto ampliada — Beneficiação de Acesso Pedonal e Ferroviário – Complexo do Entroncamento">
             <img src="img/obras/chatgpt-image-16-09-2026-14-24-44-5-800.webp" alt="Beneficiação de Acesso Pedonal e Ferroviário – Complexo do Entroncamento" loading="lazy" />
             <figcaption class="cap">Beneficiação de Acesso Pedonal e Ferroviário – Complexo do Entroncamento</figcaption>
           </a>
         </figure>
         <figure class="shot" data-rise>
-          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-08-21.webp" target="_blank" rel="noopener" aria-label="Ver foto ampliada — Manutenção do Ramal da Biotek – Vila Velha de Ródão">
+          <a href="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-08-21.webp" aria-label="Ver foto ampliada — Manutenção do Ramal da Biotek – Vila Velha de Ródão">
             <img src="img/obras/imagem-do-chatgpt-28-de-set-de-2026-15-08-21-800.webp" alt="Manutenção do Ramal da Biotek – Vila Velha de Ródão" loading="lazy" />
             <figcaption class="cap">Manutenção do Ramal da Biotek – Vila Velha de Ródão</figcaption>
           </a>
@@ -140,6 +154,41 @@
     gsap.to(el,{y:0,opacity:1,duration:.8,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 90%"}});
   });
   window.addEventListener("load",function(){ScrollTrigger.refresh();});
+})();
+</script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
+  <img id="lightboxImg" src="" alt="" />
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
+<script>
+(function(){
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  var lbCap = document.getElementById("lightboxCap");
+  var lbClose = document.getElementById("lightboxClose");
+  function openLightbox(src, alt){
+    lbImg.src = src; lbImg.alt = alt || ""; lbCap.textContent = alt || "";
+    lb.classList.add("open"); lb.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox(){
+    lb.classList.remove("open"); lb.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+    lbImg.src = "";
+  }
+  document.querySelectorAll(".shot a").forEach(function(a){
+    a.addEventListener("click", function(e){
+      e.preventDefault();
+      var img = a.querySelector("img");
+      openLightbox(a.getAttribute("href"), img ? img.alt : "");
+    });
+  });
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", function(e){ if(e.target === lb) closeLightbox(); });
+  window.addEventListener("keydown", function(e){ if(e.key === "Escape") closeLightbox(); });
 })();
 </script>
 </body>
